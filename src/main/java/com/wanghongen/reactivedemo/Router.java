@@ -1,6 +1,7 @@
-package main.java.com.wanghongen.reactivedemo;
+package com.wanghongen.reactivedemo;
 
-import main.java.com.wanghongen.reactivedemo.handlers.HelloWorldHandler;
+import com.wanghongen.reactivedemo.handlers.HelloWorldHandler;
+import com.wanghongen.reactivedemo.handlers.UserHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,12 +14,14 @@ public class Router {
 
   @Autowired
   private HelloWorldHandler helloWorldHandler;
-//  @Autowired
-//  private UserHandler userHandler;
+  @Autowired
+  private UserHandler userHandler;
 
   @Bean
   public RouterFunction<?> routerFunction() {
-    return RouterFunctions.route(RequestPredicates.GET("/hello"), helloWorldHandler::helloWorld);
+    return RouterFunctions.route(RequestPredicates.GET("/hello"), helloWorldHandler::helloWorld)
+        .andRoute(RequestPredicates.POST("/register"), userHandler::register)
+        .andRoute(RequestPredicates.POST("/login"), userHandler::login);
   }
 
 }

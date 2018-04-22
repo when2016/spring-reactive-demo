@@ -1,4 +1,4 @@
-package main.java.com.wanghongen.reactivedemo.handlers;
+package com.wanghongen.reactivedemo.handlers;
 
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;

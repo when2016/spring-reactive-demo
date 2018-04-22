@@ -1,4 +1,4 @@
-package main.java.com.wanghongen.reactivedemo;
+package com.wanghongen.reactivedemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
